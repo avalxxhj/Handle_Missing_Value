@@ -1,0 +1,10 @@
+#python
+data['Age'].isnull().sum()
+data['Age'].mean()
+data['Age'].replace(np.NaN, data['Age'].mean()).head(15)
+
+data['Age'].median()
+data['Age'].replace(np.NaN, data['Age'].median()).head(15)
+
+data['Age'].mode()
+data['Age'].replace(np.NaN, data['Age'].mode()).head(15)
