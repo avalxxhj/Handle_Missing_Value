@@ -1,0 +1,3 @@
+#python
+data.dropna(inplace = True)
+data.isnull().sum()
