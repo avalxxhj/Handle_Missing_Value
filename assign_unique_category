@@ -1,0 +1,3 @@
+#python codes
+data['Cabin'].head(10)
+data['Cabin'].fillna('U').head(10)
