@@ -1,0 +1,20 @@
+#python code
+from sklearn.linear_model import LinearRegression
+linreg = LinearRegression()
+
+data_with_null = data[['PassengerId','Pclass','Survived','SibSp','Parch','Fare','Age']].dropna()
+data_without_null = data_with_null.dropna()
+#all features except AGE
+train_data_x = data_without_null.iloc[:,:6]
+#only AGE
+train_data_y = data_without_null.iloc[:,6]
+
+#training with the available data
+linreg.fit(train_data_x, train_data_y)
+
+#predict for the whole dataset and replace only the missing values later
+test_data = data_with_null.iloc[:,:6]
+age_predicted['Age'] = pd.DataFrame(linreg.predict(test_data))
+
+#replace only the missing values
+data_with_null.Age.fillna(age_predicted.Age,inplace=True)
